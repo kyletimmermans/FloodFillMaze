@@ -8,7 +8,7 @@
 
 </br>
 
-<div align="center">Visual representation of a flood fill algorithm</div>
+<div align="center">Visual representation of a flood fill algorithm (random maze generation)m</div>
 
 </br>
 
