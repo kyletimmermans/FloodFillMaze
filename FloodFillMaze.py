@@ -65,6 +65,8 @@ def generate_maze(size):
                 temp_y += 1
                 # If we reached the right most wall, no need to check,
                 # it's the final move, just place it
+                # Why this if-statement? Bc right is the only way to get to
+                # into the right-most wall, not up, down, or left
                 if temp_y == size-1:
                     end = True
                     maze[temp_x][temp_y] = ' '
@@ -118,8 +120,18 @@ def find_start(maze):
 
 
 # Traverse maze left to right
+# Check which direction is open and then move to & save 
+# those coordinates and continue from those coordinates
+# and repeat until the end of the maze.
+# Check all around -> Move to open space -> Repeat
 def traverse_maze(maze):
-    x, y = find_start(maze), 0  # Y is always 0 because the maze will always begin at the first column
+    x, y = find_start(maze), 0
+    # Can't start searching from -1 (when left is calculated),
+    # so we set the opening first and move to the next element and
+    # fill it and then start searching from there
+    maze[x][y], maze[x][y+1] = u'\u265b', u'\u265b'
+    # Move right +1 to avoid the -1 issue mentioned above
+    y += 1
     end = False
     while end is False:  # While not at end
         # 4 Directions: X=Rows, Y=Columns
@@ -127,22 +139,22 @@ def traverse_maze(maze):
         down = maze[x+1][y]
         left = maze[x][y-1]
         right = maze[x][y+1]
-        if y == len(maze)-2 and right == ' ':  # Reached farthest right
-            maze[x][y], maze[x][y+1] = u'\u265b', u'\u265b'  # Now set the last ones to solved as well b/c they won't be reached
-            end = True  # End while loop, maze completely solved
-        elif up == ' ':  # Keep going if up is a space
-            maze[x][y] = u'\u265b'
+ 
+        if up == ' ':  # Keep going if up is a space
+            maze[x-1][y] = u'\u265b'
             x -= 1
         elif down == ' ':  # Keep going if down is a space
-            maze[x][y] = u'\u265b'
+            maze[x+1][y] = u'\u265b'
             x += 1
         elif left == ' ':  # Keep going if left is a space
-            maze[x][y] = u'\u265b'
+            maze[x][y-1] = u'\u265b'
             y -= 1
         elif right == ' ':  # Keep going if right is a space
-            maze[x][y] = u'\u265b'
+            maze[x][y+1] = u'\u265b'
+            if (y+1) == len(maze)-1:
+                end = True
+                return maze
             y += 1
-    return maze
 
 
 def print_maze(maze):
