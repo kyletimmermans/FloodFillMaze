@@ -8,10 +8,10 @@
 
 </br>
 
-<div align="center">Visual representation of a flood fill algorithm (random maze generation)m</div>
+<div align="center">Visual representation of a flood fill algorithm (random maze generation)</div>
 
 </br>
 
 <p align="center">
-  <img src="https://github.com/kyletimmermans/FloodFillMaze/blob/main/Maze.png?raw=true" alt="Maze"/>
+  <img src="https://github.com/kyletimmermans/FloodFillMaze/blob/main/Mazes.png?raw=true" alt="Mazes"/>
 </p>
