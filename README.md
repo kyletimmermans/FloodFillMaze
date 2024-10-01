@@ -1,6 +1,6 @@
-![Version 2.0](https://img.shields.io/badge/version-v2.0-orange.svg)
-![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)
-![Last Updated](https://img.shields.io/github/last-commit/kyletimmermans/FloodFillMaze?color=success)
+![Version 2.0](https://img.shields.io/badge/Version-2.0-orange.svg)
+![Python 3.11](https://img.shields.io/badge/Python-3.11-blue.svg)
+![Latest Commit](https://img.shields.io/github/last-commit/kyletimmermans/FloodFillMaze?color=success&label=Latest%20Commit)
 [![kyletimmermans Twitter](http://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow)](https://twitter.com/kyletimmermans)
 
 
